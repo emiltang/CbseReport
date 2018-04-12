@@ -1,12 +1,12 @@
 \section{OSGI}
 
-Instead of using \emph{bundle activators} or \emph{constructors}, 
-the \emph{OSGI declarative services} provide the annotations, 
+Instead of using \emph{bundle activators} or \emph{constructors},
+the \emph{OSGI declarative services} provide the annotations,
 \mintinline{java}|@Activate| and \mintinline{java}|@Deactivate|.
 These annotations can be used to control the behavior of services when they
 are loaded and unloaded.
 The annotations are used in the \emph{plugin services} to apply the plugins
-resources to the \emph{game engine} when the plugin is loaded, 
+resources to the \emph{game engine} when the plugin is loaded,
 and then removing it again when the plugin is unloaded.
 
 \begin{listing}
@@ -16,10 +16,9 @@ and then removing it again when the plugin is unloaded.
     policy = ReferencePolicy.DYNAMIC,
     policyOption = ReferencePolicyOption.GREEDY
 )
-private volatile List<IProcessor> plugins = 
+private volatile List<IProcessor> plugins =
         new CopyOnWriteArrayList<>();
 \end{minted}
-
 \caption{The listing shows of how \texttt{IProcessor} services are being loaded
 into the core module.
 The collection of services is annotated with the \mintinline{java}|@Reference|
@@ -27,7 +26,6 @@ annotation from OSGI declarative services.
 This annotation tells the OSGI framework to load all service implementations of
 the service interface into the collection.
 Additionally the annotation is configured to dynamically load services while
-the program is running instead of only once.
-}
+the program is running instead of only once.}
 \label{lst:osgi-ref}
 \end{listing}

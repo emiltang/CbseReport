@@ -1,0 +1,24 @@
+\section{Java SE Service Loader}
+
+The implementation of the Asteroids game named \emph{AsteroidServiceLoader},
+uses the \mintinline{java}|ServiceLoader|\cite{bib:service-loader} from Java
+Standard Edition to manage implementation of service interfaces.
+
+Each component declares in its jar its implementations of service interfaces.
+For each service implementation there exits a file in the path
+\mintinline{bash}|/META-INF/services|,
+describing an interface as the file name and an implementation class name as
+the file content. 
+For example, the service \mintinline{java}|PlayerProcessor| that implements the
+interface \mintinline{java}|IProcessor|,
+has a file called \mintinline{bash}|com.mycompany.api.IProcessor| with the
+contents: \mintinline{bash}|com.mycompany.player.PlayerProcessor|.
+
+The \mintinline{java}|ServiceLoader| can the be called to load all
+implementations of the interface.
+The class \mintinline{java}|ServiceLocater| from the module
+\mintinline{java}|library| includes two helper functions to retrieve services.
+The first function, \mintinline{java}|getService()|, returns the first service
+that is found and throws and exception if none is found.
+The second function, \mintinline{java}|getServices|, returns a list of the
+found services.

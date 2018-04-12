@@ -1,0 +1,32 @@
+\documentclass[a4paper]{article}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=british]{english}
+
+\usepackage{microtype}
+\usepackage{libertine}
+\usepackage{sourcecodepro}
+
+\frenchspacing
+
+\usepackage{minted}
+\usepackage{hyperref}
+
+\usepackage[font=sf]{caption}
+
+\title{Software Components Project Report}
+\author{Emil Tang Kristensen}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\input{service-loader.tex}
+\input{osgi.tex}
+
+\input{bibliography.tex}
+
+\end{document}
